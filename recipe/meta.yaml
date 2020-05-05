@@ -14,7 +14,7 @@ source:
     - 0001-Conda-only-patch-capnproto-build-to-work-with-anacon.patch
 
 build:
-  number: 0
+  number: 1
   run_exports:
     # https://abi-laboratory.pro/?view=timeline&l=tiledb
     - {{ pin_subpackage('tiledb', 'x.x') }}
@@ -31,11 +31,14 @@ requirements:
     - zstd
     - lz4-c
     - tbb-devel 2019.9
+    - google-cloud-cpp
+
   run:
     - zlib
     - bzip2
     - zstd
     - lz4-c
+    - google-cloud-cpp
     - curl
 
 test:
