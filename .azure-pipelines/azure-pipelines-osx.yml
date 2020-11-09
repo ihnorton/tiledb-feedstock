@@ -26,3 +26,9 @@ jobs:
       BINSTAR_TOKEN: $(BINSTAR_TOKEN)
       FEEDSTOCK_TOKEN: $(FEEDSTOCK_TOKEN)
       STAGING_BINSTAR_TOKEN: $(STAGING_BINSTAR_TOKEN)
+  - bash: |
+      cp -r /Users/runner/miniforge3/conda-bld/osx-64/ $BUILD_ARTIFACTSTAGINGDIRECTORY
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathToPublish: $(Build.ArtifactStagingDirectory)
+      artifactName: MyBuildOutputs
